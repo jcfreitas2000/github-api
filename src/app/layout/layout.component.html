@@ -1,0 +1,16 @@
+<div class="layout-container">
+    <mat-toolbar>
+        <span>GitHub API</span>
+        <span class="space-grow"></span>
+        <a [href]="gitHubRepository" target="_blank" mat-icon-button aria-label="Code repository on GitHub">
+            <mat-icon>code</mat-icon>
+        </a>
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+
+    <footer class="footer">
+        <span>GitHub API</span>
+        <span>Developed by José Carlos</span>
+    </footer>
+</div>
