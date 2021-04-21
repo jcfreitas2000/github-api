@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.gitHubRepository = environment.gitHubRepository;
+        this.gitHubRepository = environment.githubRepository;
     }
 
 }

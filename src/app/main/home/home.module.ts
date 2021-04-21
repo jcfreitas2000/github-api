@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
-import {SearchModule} from '../../shared/search/search.module';
+import {SearchModule} from '../search/search.module';
+import {UserCardModule} from '../user-card/user-card.module';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import {SearchModule} from '../../shared/search/search.module';
     ],
     imports: [
         CommonModule,
-        SearchModule
+        SearchModule,
+        UserCardModule
     ]
 })
 export class HomeModule {

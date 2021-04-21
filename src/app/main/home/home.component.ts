@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {User} from '../model/user';
+import {GithubApiService} from '../services/github-api.service';
+import {Observable} from 'rxjs';
 
 @Component({
     selector: 'gha-home',
@@ -8,8 +11,11 @@ import {Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
     searchValue: string;
+    user$: Observable<User>;
 
-    constructor() {
+    constructor(
+        private githubApiService: GithubApiService
+    ) {
     }
 
     ngOnInit(): void {
@@ -17,5 +23,9 @@ export class HomeComponent implements OnInit {
 
     search(searchValue: string): void {
         this.searchValue = searchValue;
+
+        if (searchValue) {
+            this.user$ = this.githubApiService.userProfile(searchValue);
+        }
     }
 }
