@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../model/user';
-import {GithubApiService} from '../services/github-api.service';
+import {GithubApiService} from '../../shared/services/github-api.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {finalize} from 'rxjs/operators';
 

@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
 import { AuthComponentComponent } from './auth-component/auth-component.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { AuthComponentComponent } from './auth-component/auth-component.componen
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
-        RouterModule
+        RouterModule,
+        MatMenuModule
     ]
 })
 export class LayoutModule {

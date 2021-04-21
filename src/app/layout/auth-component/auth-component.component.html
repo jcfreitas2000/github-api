@@ -5,7 +5,12 @@
         <mat-icon>login</mat-icon>
     </a>
 
-    <button *ngIf="isAuthorized" (click)="logout()" mat-icon-button aria-label="Logout">
-        <mat-icon>logout</mat-icon>
-    </button>
+    <ng-container *ngIf="isAuthorized">
+        <button mat-button [matMenuTriggerFor]="menu">
+            <img [src]="authUser.avatar_url" class="avatar" alt="Profile photo"/>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="logout()" mat-menu-item>Sign out</button>
+        </mat-menu>
+    </ng-container>
 </ng-template>

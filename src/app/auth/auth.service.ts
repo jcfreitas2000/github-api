@@ -38,6 +38,10 @@ export class AuthService {
         return this.accessToken$.asObservable();
     }
 
+    getAccessTokenValue(): string {
+        return this.accessToken$.value;
+    }
+
     private setAccessToken(accessToken: string): void {
         if (accessToken) {
             this.matSnackBar.open('You are signed in with your GitHub account');
