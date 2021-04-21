@@ -2,7 +2,7 @@
 
 <mat-spinner *ngIf="loading; else results"></mat-spinner>
 <ng-template #results>
-    <p *ngIf="repositories.length == 0; else list">
+    <p *ngIf="repositories?.length == 0; else list">
         No repositories was found for this user
     </p>
     <ng-template #list>
