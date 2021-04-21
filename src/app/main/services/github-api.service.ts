@@ -16,14 +16,14 @@ export class GithubApiService {
     }
 
     userProfile(user: string): Observable<User> {
-        return this.http.get<User>(`${environment.githubApiUrl}/users/${user}`);
+        return this.http.get<User>(`${environment.githubBaseApiUrl}/users/${user}`);
     }
 
     userRepositories(user: string): Observable<Repository> {
-        return this.http.get<Repository>(`${environment.githubApiUrl}/users/${user}/repos`);
+        return this.http.get<Repository>(`${environment.githubBaseApiUrl}/users/${user}/repos`);
     }
 
     userStarred(user: string): Observable<Repository> {
-        return this.http.get<Repository>(`${environment.githubApiUrl}/users/${user}/starred`);
+        return this.http.get<Repository>(`${environment.githubBaseApiUrl}/users/${user}/starred`);
     }
 }

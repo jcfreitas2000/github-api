@@ -5,10 +5,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
+import { AuthComponentComponent } from './auth-component/auth-component.component';
 
 @NgModule({
     declarations: [
-        LayoutComponent
+        LayoutComponent,
+        AuthComponentComponent
     ],
     exports: [
         LayoutComponent

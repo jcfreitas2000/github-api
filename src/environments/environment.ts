@@ -5,7 +5,9 @@
 export const environment = {
     production: false,
     githubRepository: 'https://github.com',
-    githubApiUrl: 'https://api.github.com'
+    githubBaseApiUrl: 'https://api.github.com',
+    githubAuthUrl: 'https://github.com/login/oauth/authorize',
+    githubClientId: '295d1effcd936172d7ea'
 };
 
 /*

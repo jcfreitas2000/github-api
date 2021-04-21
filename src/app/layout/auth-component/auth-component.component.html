@@ -1,0 +1,11 @@
+<span *ngIf="loading; else content">Loading...</span>
+
+<ng-template #content>
+    <a *ngIf="!isAuthorized" [href]="githubAuthUrl" mat-icon-button aria-label="Login with GitHub">
+        <mat-icon>login</mat-icon>
+    </a>
+
+    <button *ngIf="isAuthorized" (click)="logout()" mat-icon-button aria-label="Logout">
+        <mat-icon>logout</mat-icon>
+    </button>
+</ng-template>
