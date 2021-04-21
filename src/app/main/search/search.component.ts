@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {debounceTime} from 'rxjs/operators';
+import {debounceTime, filter} from 'rxjs/operators';
 
 @Component({
     selector: 'gha-search',
@@ -16,14 +16,21 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     searchValue$: BehaviorSubject<string>;
 
+    private lastSearchValueEmitted: string;
+
     constructor() {
     }
 
     ngOnInit(): void {
+        this.lastSearchValueEmitted = this.searchValue;
         this.searchValue$ = new BehaviorSubject(this.searchValue);
         this.searchValue$
             .pipe(debounceTime(250))
-            .subscribe(value => this.searchValueChanges.emit(value));
+            .pipe(filter(value => value !== this.lastSearchValueEmitted))
+            .subscribe(value => {
+                this.searchValueChanges.emit(value);
+                this.lastSearchValueEmitted = value;
+            });
     }
 
     ngOnDestroy(): void {
