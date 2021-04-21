@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'gha-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'gha-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    searchValue: string;
 
-  ngOnInit(): void {
-  }
+    constructor() {
+    }
 
+    ngOnInit(): void {
+    }
+
+    search(searchValue: string): void {
+        this.searchValue = searchValue;
+    }
 }

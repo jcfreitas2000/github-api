@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
+import {SearchModule} from '../../shared/search/search.module';
 
 @NgModule({
     declarations: [
@@ -8,6 +9,7 @@ import {HomeComponent} from './home.component';
     ],
     imports: [
         CommonModule,
+        SearchModule
     ]
 })
 export class HomeModule {

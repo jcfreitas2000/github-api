@@ -11,8 +11,9 @@
 
 main {
     flex-grow: 1;
-    width: 100%;
     max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
     padding: 1rem;
     margin: 0 auto;
 }
