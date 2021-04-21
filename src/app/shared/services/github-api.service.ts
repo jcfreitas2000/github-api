@@ -23,11 +23,11 @@ export class GithubApiService {
         return this.http.get<User>(`${environment.githubBaseApiUrl}/users/${user}`);
     }
 
-    userRepositories(user: string): Observable<Repository> {
-        return this.http.get<Repository>(`${environment.githubBaseApiUrl}/users/${user}/repos`);
+    userRepositories(user: string): Observable<Repository[]> {
+        return this.http.get<Repository[]>(`${environment.githubBaseApiUrl}/users/${user}/repos`);
     }
 
-    userStarred(user: string): Observable<Repository> {
-        return this.http.get<Repository>(`${environment.githubBaseApiUrl}/users/${user}/starred`);
+    userStarred(user: string): Observable<Repository[]> {
+        return this.http.get<Repository[]>(`${environment.githubBaseApiUrl}/users/${user}/starred`);
     }
 }

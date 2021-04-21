@@ -11,8 +11,8 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <button mat-stroked-button>Repositories</button>
-        <button mat-stroked-button>Favorites</button>
+        <button (click)="clickRepositories.emit()" mat-stroked-button>Repositories</button>
+        <button (click)="clickFavorites.emit()" mat-stroked-button>Favorites</button>
     </mat-card-actions>
 </mat-card>
 

@@ -3,11 +3,23 @@
 <mat-spinner *ngIf="loading; else results"></mat-spinner>
 
 <ng-template #results>
-    <gha-user-card *ngIf="user; else noResultsFound" [user]="user"></gha-user-card>
+    <gha-user-card
+        (clickRepositories)="findRepositories()"
+        (clickFavorites)="findFavorites()"
+        *ngIf="user; else noResultsFound"
+        [user]="user"
+    ></gha-user-card>
 
     <ng-template #noResultsFound>
         <p *ngIf="searchValue">
             No results was found for this username: {{searchValue}}
         </p>
     </ng-template>
+
+    <gha-list-repositories
+        [loading]="repositoriesLoading"
+        *ngIf="repositories || repositoriesLoading"
+        [title]="repositoriesListTitle"
+        [repositories]="repositories"
+    ></gha-list-repositories>
 </ng-template>

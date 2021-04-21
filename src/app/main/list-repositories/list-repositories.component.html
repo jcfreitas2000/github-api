@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+
+<mat-spinner *ngIf="loading; else results"></mat-spinner>
+<ng-template #results>
+    <p *ngIf="repositories.length == 0; else list">
+        No repositories was found for this user
+    </p>
+    <ng-template #list>
+        <mat-list>
+            <gha-list-repositories-item
+                *ngFor="let repository of repositories"
+                [repository]="repository"
+            ></gha-list-repositories-item>
+        </mat-list>
+    </ng-template>
+</ng-template>

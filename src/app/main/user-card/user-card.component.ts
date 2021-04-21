@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../model/user';
 
 @Component({
@@ -10,6 +10,9 @@ export class UserCardComponent implements OnInit {
 
     @Input() searchValue: string;
     @Input() user: User;
+
+    @Output() clickRepositories = new EventEmitter<void>();
+    @Output() clickFavorites = new EventEmitter<void>();
 
     constructor() {
     }
