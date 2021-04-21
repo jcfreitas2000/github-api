@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home.component';
 import {SearchModule} from '../search/search.module';
 import {UserCardModule} from '../user-card/user-card.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import {UserCardModule} from '../user-card/user-card.module';
     imports: [
         CommonModule,
         SearchModule,
-        UserCardModule
+        UserCardModule,
+        MatProgressSpinnerModule
     ]
 })
 export class HomeModule {

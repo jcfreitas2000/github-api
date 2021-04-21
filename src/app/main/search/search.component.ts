@@ -14,12 +14,13 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     @Output() searchValueChanges = new EventEmitter<string>();
 
-    searchValue$ = new BehaviorSubject('');
+    searchValue$: BehaviorSubject<string>;
 
     constructor() {
     }
 
     ngOnInit(): void {
+        this.searchValue$ = new BehaviorSubject(this.searchValue);
         this.searchValue$
             .pipe(debounceTime(250))
             .subscribe(value => this.searchValueChanges.emit(value));

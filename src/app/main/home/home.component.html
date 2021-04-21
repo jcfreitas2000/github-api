@@ -1,9 +1,13 @@
-<gha-search class="search-component" searchValue="jcfreitas2000" (searchValueChanges)="search($event)"></gha-search>
+<gha-search class="search-component" [searchValue]="searchValue" (searchValueChanges)="search($event)"></gha-search>
 
-<gha-user-card *ngIf="user$ | async as user; else noResultsFound" [user]="user"></gha-user-card>
+<mat-spinner *ngIf="loading; else results"></mat-spinner>
 
-<ng-template #noResultsFound>
-    <p *ngIf="searchValue">
-        No results was found for this username: {{searchValue}}
-    </p>
+<ng-template #results>
+    <gha-user-card *ngIf="user; else noResultsFound" [user]="user"></gha-user-card>
+
+    <ng-template #noResultsFound>
+        <p *ngIf="searchValue">
+            No results was found for this username: {{searchValue}}
+        </p>
+    </ng-template>
 </ng-template>

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../model/user';
 import {GithubApiService} from '../services/github-api.service';
-import {Observable} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
+import {finalize} from 'rxjs/operators';
 
 @Component({
     selector: 'gha-home',
@@ -10,22 +11,34 @@ import {Observable} from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
+    loading = false;
+
     searchValue: string;
-    user$: Observable<User>;
+    user: User;
 
     constructor(
-        private githubApiService: GithubApiService
+        private githubApiService: GithubApiService,
+        private router: Router,
+        private activatedRoute: ActivatedRoute
     ) {
     }
 
     ngOnInit(): void {
+        this.search(this.activatedRoute.snapshot.queryParams.q);
     }
 
     search(searchValue: string): void {
         this.searchValue = searchValue;
+        this.router.navigate(['.'], {queryParams: {q: searchValue}});
 
         if (searchValue) {
-            this.user$ = this.githubApiService.userProfile(searchValue);
+            this.loading = true;
+            this.githubApiService.userProfile(searchValue)
+                .pipe(finalize(() => this.loading = false))
+                .subscribe(
+                    user => this.user = user,
+                    () => this.user = null
+                );
         }
     }
 }
