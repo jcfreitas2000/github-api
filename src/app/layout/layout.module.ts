@@ -5,8 +5,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
-import { AuthComponentComponent } from './auth-component/auth-component.component';
+import {AuthComponentComponent} from './auth-component/auth-component.component';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatIconModule,
         MatButtonModule,
         RouterModule,
-        MatMenuModule
+        MatMenuModule,
+        MatDividerModule
     ]
 })
 export class LayoutModule {

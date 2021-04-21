@@ -10,6 +10,9 @@
             <img [src]="authUser.avatar_url" class="avatar" alt="Profile photo"/>
         </button>
         <mat-menu #menu="matMenu">
+            <a [href]="authUser.html_url" target="_blank" mat-menu-item>{{authUser.name}}</a>
+            <a [href]="authUser.html_url" target="_blank" mat-menu-item>GitHub Profile</a>
+            <mat-divider></mat-divider>
             <button (click)="logout()" mat-menu-item>Sign out</button>
         </mat-menu>
     </ng-container>
